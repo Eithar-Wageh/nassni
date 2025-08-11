@@ -1,0 +1,179 @@
+/* Root Variables for Colors */
+:root {
+  --primary-color: #4A90E2; /* Blue - Primary (Buttons, Links) */
+  --secondary-color: #FFFFFF; /* White - Main Background */
+  --secondary-alt-color: #F5F5F5; /* Light Gray - Alternate Background */
+  --accent-color: #FFC107; /* Yellow - Action Buttons/Highlights */
+  --dark-mode-bg: #1C2526; /* Dark Gray - Dark Mode Background */
+  --dark-mode-text: #FFFFFF; /* White - Dark Mode Text */
+  --high-contrast-text: #000000; /* Black - High Contrast Text */
+  --high-contrast-bg: #FFFFFF; /* White - High Contrast Background */
+}
+
+/* Base Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--secondary-color);
+  color: var(--high-contrast-text);
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* OpenDyslexic Font */
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url('https://cdn.jsdelivr.net/npm/opendyslexic@latest/OpenDyslexic-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.opendyslexic {
+  font-family: 'OpenDyslexic', sans-serif;
+}
+
+/* Light Mode */
+.light-mode {
+  background-color: var(--secondary-color);
+  color: var(--high-contrast-text);
+}
+
+/* Dark Mode */
+.dark-mode {
+  background-color: var(--dark-mode-bg);
+  color: var(--dark-mode-text);
+}
+
+/* High Contrast Mode */
+.high-contrast {
+  background-color: var(--high-contrast-bg);
+  color: var(--high-contrast-text);
+}
+
+/* Headings */
+h1 {
+  font-size: 32px;
+  color: var(--primary-color);
+  margin-bottom: 16px;
+}
+
+h2 {
+  font-size: 24px;
+  color: var(--primary-color);
+  margin-bottom: 12px;
+}
+
+h3 {
+  font-size: 20px;
+  color: var(--primary-color);
+  margin-bottom: 8px;
+}
+
+/* Buttons */
+button, .btn {
+  background-color: var(--primary-color);
+  color: var(--dark-mode-text);
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+button.accent, .btn.accent {
+  background-color: var(--accent-color);
+  color: var(--high-contrast-text);
+}
+
+button:hover, .btn:hover {
+  background-color: #357ABD; /* Darker Blue */
+  transform: translateY(-1px);
+}
+
+button.accent:hover, .btn.accent:hover {
+  background-color: #E0A800; /* Darker Yellow */
+}
+
+/* Input Fields and Select */
+input, select {
+  padding: 10px;
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: var(--secondary-alt-color);
+  color: var(--high-contrast-text);
+  width: 100%;
+  max-width: 300px;
+}
+
+/* Visual Notification Flash */
+@keyframes flash {
+  0% { background-color: var(--accent-color); }
+  100% { background-color: var(--secondary-alt-color); }
+}
+
+.flash-notification {
+  animation: flash 0.5s ease;
+}
+
+/* Footer */
+footer {
+  background-color: var(--secondary-alt-color);
+  padding: 16px;
+  text-align: center;
+  margin-top: auto;
+}
+
+footer a {
+  color: var(--primary-color);
+  text-decoration: none;
+  margin: 0 12px;
+  font-size: 14px;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  button, .btn {
+    padding: 10px 20px;
+  }
+
+  input, select {
+    max-width: 100%;
+  }
+}
+
+/* Accessibility: Focus States */
+button:focus, input:focus, select:focus {
+  outline: 3px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+/* ARIA Support */
+[aria-hidden="true"] {
+  display: none;
+}
+
+[aria-label] {
+  cursor: pointer;
+}
